@@ -2,32 +2,9 @@ import React, { Component } from 'react';
 import './radio.css';
 
 class Radio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false,
-    };
-  }
-
-
   render() {
     console.log(this.props.questionId);
-    const check = (event) => {
-      console.log('wtf');
 
-      for (const eachAns in this.props.answers) {
-        if (eachAns.questionId === this.props.questionId) {
-          if (event.target.value === eachAns.answer) {
-            console.log('lol');
-            this.setState({
-              checked: true,
-            });
-            return;
-          }
-        }
-      }
-      console.log('lolol');
-    };
     return (
 
       <div className="Radio" >
