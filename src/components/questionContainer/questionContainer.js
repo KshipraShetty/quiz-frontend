@@ -20,7 +20,7 @@ class QuestionContainer extends Component {
       <div className="QuestionContainer" >
         {quests}
         <div className="CalculateButton">
-          <Button label="Calculate" />
+          <Button label="Calculate" onCalculateClick={this.props.onCalculateClick} />
         </div>
       </div>
 

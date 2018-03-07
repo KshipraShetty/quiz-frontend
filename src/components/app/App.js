@@ -78,6 +78,7 @@ render() {
           questions={this.state.questions}
           answers={this.state.answers}
           onRadioClick={event => this.onRadioClick(event)}
+          onCalculateClick={this.onCalculateClick}
         />
 
       </div>
