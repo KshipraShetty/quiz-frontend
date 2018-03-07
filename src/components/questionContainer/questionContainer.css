@@ -1,0 +1,10 @@
+.QuestionContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.CalculateButton {
+    margin-right: 35%; 
+    margin-left: 35%; 
+}

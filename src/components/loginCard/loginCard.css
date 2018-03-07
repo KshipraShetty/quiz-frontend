@@ -1,0 +1,11 @@
+.LoginCard{
+    display: flex;
+    flex-direction: row;
+    padding-top: 20%;
+    border: 5px;
+    padding-right: 25%;
+    padding-left: 25%;
+    height: 30vh;
+    
+}
+

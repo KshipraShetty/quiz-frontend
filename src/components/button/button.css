@@ -1,0 +1,11 @@
+.Button {
+    border: 2px solid black;
+    margin: 10%;
+}
+
+.ActualButton {
+    background: none;
+    width:100%;
+    font-size: 20px;
+    
+}

@@ -1,0 +1,17 @@
+
+.LoginForm {
+    flex-grow: 1;
+    height: 100%;    
+    width:20%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.LoginHeading {
+    font-weight: bold;
+    font-size: 22px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
