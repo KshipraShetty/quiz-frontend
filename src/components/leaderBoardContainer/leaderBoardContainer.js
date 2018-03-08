@@ -10,8 +10,6 @@ class LeaderBoardContainer extends Component {
     console.log(this.props.allUsers);
 
     const allBoards = this.props.leaderBoard.data.map((each) => {
-      // this.props.allUsers.data.map(((eachUser) => {
-      //   if (eachUser.id === each.userId) {
       q += 1;
       console.log(q);
 
@@ -22,9 +20,6 @@ class LeaderBoardContainer extends Component {
         currentUser={this.props.currentUser}
         numb={q}
       />);
-      // }
-    //  }
-    // ))
     });
     return (
       <div className="LeaderBoardContainer " >

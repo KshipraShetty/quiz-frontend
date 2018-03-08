@@ -18,7 +18,6 @@ class App extends Component {
       leaderBoard: [],
       currentScore: 0,
       maxScore: 0,
-      users: [],
       errMsg: '',
     };
   }
@@ -102,18 +101,6 @@ onCalculateClick=() => {
       });
     }
   });
-
-  axios({
-    method: 'GET',
-    url: '/fetchUsers',
-  })
-    .then((allUsers) => {
-      console.log(allUsers);
-
-      this.setState({
-        users: allUsers,
-      });
-    });
 }
 
 takeUsername = (event) => {
@@ -175,7 +162,6 @@ render() {
         currentUser={this.state.answers[0].id}
         currentScore={this.state.currentScore}
         maxScore={this.state.maxScore}
-        allUsers={this.state.users}
         onPlayAgain={this.onPlayAgain}
       />
     </div>
