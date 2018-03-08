@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../header/header';
 import LoginContainer from '../loginContainer/loginContainer';
 import QuestionContainer from '../questionContainer/questionContainer';
+import LeaderBoardContainer from '../leaderBoardContainer/leaderBoardContainer';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,9 @@ class App extends Component {
       username: '',
       questions: [],
       answers: [],
+      leaderBoard: [],
+      currentScore: 0,
+      maxScore: 0,
     };
   }
 
@@ -46,6 +50,36 @@ onRadioClick=(event, questionId) => {
     },
   });
 }
+
+
+onCalculateClick=() => {
+  axios({
+    method: 'POST',
+    url: '/calculateScore',
+    data: {
+      userId: this.state.answers[0].id,
+    },
+  }).then((leaderBoard) => {
+    console.log(this.state.leaderBoard);
+    if (leaderBoard.data === 'Answer all questions') {
+      alert('all question should be answered');
+    } else {
+      leaderBoard.data.map((eachUser) => {
+        console.log(eachUser);
+
+        if (eachUser.userId === this.state.answers[0].id) {
+          this.setState({
+            display: 2,
+            leaderBoard,
+            currentScore: eachUser.score,
+            maxScore: this.state.questions.length,
+          });
+        }
+      });
+    }
+  });
+}
+
 takeUsername = (event) => {
   this.setState({
     username: event.target.value,
@@ -85,7 +119,17 @@ render() {
     );
   }
   return (
-    <div className="App" />
+    <div className="App">
+      <div className="Header">
+        <Header helloUser="Hello" username={this.state.username} />
+      </div>
+      <LeaderBoardContainer
+        leaderBoard={this.state.leaderBoard}
+        currentUser={this.state.answers[0].id}
+        currentScore={this.state.currentScore}
+        maxScore={this.state.maxScore}
+      />
+    </div>
   );
 }
 }

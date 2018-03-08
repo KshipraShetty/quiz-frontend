@@ -1,0 +1,13 @@
+.ScoreBoard {
+    padding:3%;
+}
+
+.CurrentScore {
+    color: orange;
+    font-size: 48px;
+    padding: 1%;
+}
+
+.MaxScore {
+    font-size: 28px;
+}

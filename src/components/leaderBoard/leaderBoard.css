@@ -1,0 +1,30 @@
+
+.CurrentUser {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid black;
+    
+    padding-right: 5%;
+    padding-left: 3%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin: 2%;
+    background-color: green;
+    
+}
+
+.OldUser {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid black;
+    
+    padding-right: 5%;
+    padding-left: 3%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    margin: 2%;
+    background-color: rgb(0, 204, 255);
+    
+}
