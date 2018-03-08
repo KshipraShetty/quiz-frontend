@@ -19,6 +19,7 @@ class App extends Component {
       currentScore: 0,
       maxScore: 0,
       users: [],
+      errMsg: '',
     };
   }
 
@@ -31,11 +32,19 @@ onlogin = () => {
       username: this.state.username,
     },
   }).then((onlogin) => {
-    this.setState({
-      display: 1,
-      questions: onlogin.data.questionStatus,
-      answers: onlogin.data.userAnswers,
-    });
+    if (onlogin.data.statusCode === 400) {
+      this.setState({
+        display: 0,
+        errMsg: 'Enter valid username',
+      });
+    } else {
+      this.setState({
+        display: 1,
+        questions: onlogin.data.questionStatus,
+        answers: onlogin.data.userAnswers,
+        errMsg: '',
+      });
+    }
   });
 }
 
@@ -128,7 +137,11 @@ render() {
           <Header helloUser="" username="" />
         </div>
         <div className="Body">
+
           <LoginContainer takeUsername={event => this.takeUsername(event)} onlogin={this.onlogin} />
+          <div className="ErrMsg">
+            {this.state.errMsg}
+          </div>
         </div>
       </div>
 

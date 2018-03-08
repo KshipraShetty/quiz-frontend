@@ -9,7 +9,7 @@ class LoginContainer extends Component {
           {this.props.username}
         </div>
         <div>
-          <input type="text" onChange={this.props.takeUsername} />
+          <input className="Input" type="text" onChange={this.props.takeUsername} />
         </div>
       </div>
 

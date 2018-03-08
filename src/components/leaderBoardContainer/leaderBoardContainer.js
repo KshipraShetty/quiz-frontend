@@ -9,23 +9,23 @@ class LeaderBoardContainer extends Component {
     let q = 0;
     console.log(this.props.allUsers);
 
-    const allBoards = this.props.leaderBoard.data.map(each => (
+    const allBoards = this.props.leaderBoard.data.map((each) => {
+      // this.props.allUsers.data.map(((eachUser) => {
+      //   if (eachUser.id === each.userId) {
+      q += 1;
+      console.log(q);
 
-      this.props.allUsers.data.map(((eachUser) => {
-        if (eachUser.id === each.userId) {
-          q += 1;
-          console.log(q);
-
-          return (<LeaderBoard
-            questionId={each.userId}
-            username={eachUser.username}
-            score={each.score}
-            currentUser={this.props.currentUser}
-            numb={q}
-          />);
-        }
-      }))
-    ));
+      return (<LeaderBoard
+        questionId={each.userId}
+        username={each.username}
+        score={each.score}
+        currentUser={this.props.currentUser}
+        numb={q}
+      />);
+      // }
+    //  }
+    // ))
+    });
     return (
       <div className="LeaderBoardContainer " >
 

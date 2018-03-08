@@ -1,11 +1,16 @@
 .Button {
     border: 2px solid black;
-    margin: 10%;
+    margin-top: 5%;
+    margin-right: 15%;
+    margin-left: 18%;
+    border-radius: 5px;
+    margin-bottom: 2%;
 }
 
 .ActualButton {
     background: none;
     width:100%;
-    font-size: 20px;
-    
+    font-size: 100%;
+    border: none;
+
 }

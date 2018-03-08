@@ -1,4 +1,13 @@
 .InputContainer {
-    padding: 12%;
+    padding: 20%;
+    padding-top:30%;
     font-weight: bold;
+    font-size: 100%;
+}
+
+.Input {
+    border: 2px solid black;
+    margin-top: 6%;
+    width: 100%;
+    
 }
