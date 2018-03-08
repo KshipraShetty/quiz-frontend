@@ -1,8 +1,8 @@
 .App {
-  height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
 }
 
 .Header {
@@ -15,4 +15,5 @@
 .Body {
   background-color:#05092f;
   flex-grow: 10;
+  height: 1000px;
 }

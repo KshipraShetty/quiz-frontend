@@ -15,9 +15,7 @@ class AllOptions extends Component {
         if (eachAns.questionId === this.props.questionId) {
           if (this.props.eachOption[eachOpt] === eachAns.answer) {
             checked = true;
-          } else {
-            checked = false;
-          }
+          } else { checked = false; }
         }
       });
 

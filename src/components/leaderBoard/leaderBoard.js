@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './leaderBoard.css';
-import ScoreBoard from '../scoreBoard/scoreBoard';
 
 class LeaderBoard extends Component {
   render() {
     return (
-      <div className={(this.props.currentUser === this.props.username) ? 'CurrentUser' : 'OldUser'} >
-
+      <div className={(this.props.currentUser === this.props.questionId) ? 'CurrentUser' : 'OldUser'} >
+        <div>{this.props.numb}</div>
         <div >{this.props.username}</div>
         <div> {this.props.score}</div>
 

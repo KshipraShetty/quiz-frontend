@@ -3,9 +3,10 @@ import './questionContainer.css';
 import QuestionList from '../questionList/questionList';
 import Button from '../button/button';
 
-let qid = 0;
+
 class QuestionContainer extends Component {
   render() {
+    let qid = 0;
     const quests = this.props.questions.map((eachQuestion) => {
       qid += 1;
       return (<QuestionList
