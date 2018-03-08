@@ -87,6 +87,12 @@ takeUsername = (event) => {
   console.log(this.state.username);
 }
 
+onPlayAgain = () => {
+  this.setState({
+    display: 0,
+  });
+}
+
 render() {
   if (this.state.display === 0) {
     return (
@@ -128,6 +134,7 @@ render() {
         currentUser={this.state.answers[0].id}
         currentScore={this.state.currentScore}
         maxScore={this.state.maxScore}
+        onPlayAgain={this.onPlayAgain}
       />
     </div>
   );

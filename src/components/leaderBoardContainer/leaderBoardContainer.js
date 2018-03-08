@@ -7,7 +7,11 @@ import Button from '../button/button';
 class LeaderBoardContainer extends Component {
   render() {
     const allBoards = this.props.leaderBoard.data.map(each => (
-      <LeaderBoard username={each.userId} score={each.score} currentUser={this.props.currentUser} />));
+      <LeaderBoard
+        username={each.userId}
+        score={each.score}
+        currentUser={this.props.currentUser}
+      />));
     return (
       <div className="LeaderBoardContainer " >
 
@@ -16,6 +20,10 @@ class LeaderBoardContainer extends Component {
           maxScore={this.props.maxScore}
         />
         {allBoards}
+        <Button
+          label="Play Again"
+          onPlayAgain={this.props.onPlayAgain}
+        />
       </div>
 
 

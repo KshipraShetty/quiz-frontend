@@ -15,9 +15,13 @@ class Button extends Component {
      this.setState({
        buttonSelect: this.props.onlogin,
      });
-   } else {
+   } else if (typeof (this.props.onCalculateClick) === 'function') {
      this.setState({
        buttonSelect: this.props.onCalculateClick,
+     });
+   } else {
+     this.setState({
+       buttonSelect: this.props.onPlayAgain,
      });
    }
 
