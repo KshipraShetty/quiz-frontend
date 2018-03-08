@@ -6,6 +6,7 @@ class Button extends Component {
     super(props);
 
     this.state = {
+      disabled: false,
       buttonSelect: '',
     };
   }
@@ -18,6 +19,7 @@ class Button extends Component {
    } else if (typeof (this.props.onCalculateClick) === 'function') {
      this.setState({
        buttonSelect: this.props.onCalculateClick,
+       disabled: this.props.disable,
      });
    } else {
      this.setState({
@@ -31,7 +33,14 @@ class Button extends Component {
  render() {
    return (
      <div className="Button" >
-       <button className="ActualButton" onFocus={this.check} onClick={this.state.buttonSelect}> {this.props.label} </button>
+       <button
+         className="ActualButton"
+         onFocus={this.check}
+         onClick={this.state.buttonSelect}
+         disabled={this.state.disabled}
+         disable={this.props.disable}
+       > {this.props.label}
+       </button>
      </div>
 
    );

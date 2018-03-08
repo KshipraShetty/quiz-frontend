@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      disable: false,
       display: 0,
       username: '',
       questions: [],
@@ -62,6 +63,9 @@ onCalculateClick=() => {
   }).then((leaderBoard) => {
     console.log(this.state.leaderBoard);
     if (leaderBoard.data === 'Answer all questions') {
+      // this.setState({
+      //   disable: true,
+      // });
       alert('all question should be answered');
     } else {
       leaderBoard.data.map((eachUser) => {
@@ -119,6 +123,7 @@ render() {
           answers={this.state.answers}
           onRadioClick={event => this.onRadioClick(event)}
           onCalculateClick={this.onCalculateClick}
+          disable={this.state.disable}
         />
 
       </div>
