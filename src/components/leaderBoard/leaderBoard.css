@@ -10,7 +10,7 @@
     padding-top: 2%;
     margin: 2%;
     background-color: green;
-    
+    font-weight: bolder;    
 }
 
 .OldUser {
@@ -27,3 +27,4 @@
     background-color: rgb(0, 204, 255);
     
 }
+

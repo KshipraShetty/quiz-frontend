@@ -51,6 +51,18 @@ onRadioClick=(event, questionId) => {
       questionId: event.target.name,
     },
   });
+  axios({
+    method: 'POST',
+    url: '/login',
+    data: {
+      username: this.state.username,
+    },
+  }).then((onlogin) => {
+    this.setState({
+      questions: onlogin.data.questionStatus,
+      answers: onlogin.data.userAnswers,
+    });
+  });
 }
 
 
