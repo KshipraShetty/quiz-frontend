@@ -3,14 +3,15 @@
     flex-direction: row;
     justify-content: space-between;
     border: 2px solid black;
-    
+    box-shadow:4px 3px gray;
     padding-right: 5%;
     padding-left: 3%;
     padding-bottom: 2%;
     padding-top: 2%;
     margin: 2%;
     background-color: green;
-    font-weight: bolder;    
+    font-weight: bolder; 
+    font-size: 160%;   
 }
 
 .OldUser {

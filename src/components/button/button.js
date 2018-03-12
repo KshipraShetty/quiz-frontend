@@ -37,7 +37,7 @@ class Button extends Component {
          className="ActualButton"
          onFocus={this.check}
          onClick={this.state.buttonSelect}
-         disabled={this.state.disabled}
+         disabled={this.props.disable}
          disable={this.props.disable}
        > {this.props.label}
        </button>

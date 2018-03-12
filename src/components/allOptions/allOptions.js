@@ -5,12 +5,12 @@ import Radio from '../radio/radio';
 class AllOptions extends Component {
   render() {
     const opts = [];
-    console.log(this.props.eachOption);
+    // console.log(this.props.eachOption);
 
     for (const eachOpt in this.props.eachOption) {
       let checked;
 
-      console.log(this.props.answers[0].useranswers);
+      // console.log(this.props.answers[0].useranswers);
       this.props.answers[0].useranswers.map((eachAns) => {
         if (eachAns.questionId === this.props.questionId) {
           if (this.props.eachOption[eachOpt] === eachAns.answer) {

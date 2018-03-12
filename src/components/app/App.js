@@ -19,6 +19,7 @@ class App extends Component {
       currentScore: 0,
       maxScore: 0,
       errMsg: '',
+      questionOnClick: [],
     };
   }
 
@@ -44,11 +45,49 @@ onlogin = () => {
         errMsg: '',
       });
     }
+
+    if (this.state.answers[0].useranswers.length !== this.state.questions.length) {
+      this.setState({
+        disable: true,
+      });
+    }
+    //   console.log(this.state);
   });
 }
 
 onRadioClick=(event, questionId) => {
-  console.log(questionId);
+  // console.log(questionId);
+  // if (this.state.questionOnClick.length === 0) {
+  //   console.log('hehe');
+
+  //   this.setState({
+  //     questionOnClick: this.state.questionOnClick.push(event.target.name),
+  //   });
+  //   console.log(this.state.questionOnClick);
+  // }
+  // for (let i = 0; i < this.state.questionOnClick.length; i += 1) {
+  //   console.log(this.state.questionOnClick[i]);
+
+  //   if (event.target.name !== this.state.questionOnClick[i]) {
+  //     console.log('here');
+
+  //     this.setState({
+  //       questionOnClick: this.state.questionOnClick.push(event.target.name),
+  //     });
+  //   }
+  // }
+
+  // // this.state.questionOnClick.forEach((each) => {
+  // // console.log('whatever');
+
+
+  // if (this.state.questionOnClick.length === this.state.questions.length) {
+  //   console.log('sgdwjg');
+
+  //   this.setState({
+  //     disable: false,
+  //   });
+  // }
 
   axios({
     method: 'POST',
@@ -71,6 +110,13 @@ onRadioClick=(event, questionId) => {
       answers: onlogin.data.userAnswers,
     });
   });
+  // console.log(this.state.answers[0].useranswers.length);
+
+  if (this.state.answers[0].useranswers.length === this.state.questions.length - 1) {
+    this.setState({
+      disable: false,
+    });
+  }
 }
 
 
@@ -82,7 +128,7 @@ onCalculateClick=() => {
       userId: this.state.answers[0].id,
     },
   }).then((leaderBoard) => {
-    console.log(this.state.leaderBoard);
+    // console.log(this.state.leaderBoard);
     if (leaderBoard.data === 'Answer all questions') {
       // this.setState({
       //   disable: true,
@@ -107,7 +153,7 @@ takeUsername = (event) => {
   this.setState({
     username: event.target.value,
   });
-  console.log(this.state.username);
+//  console.log(this.state.username);
 }
 
 onPlayAgain = () => {

@@ -8,7 +8,7 @@ class LeaderBoard extends Component {
         <div >
           {this.props.numb}
           <span className="SpaceBetween">
-            {'  '}
+            {'.  '}
             {this.props.username}
           </span>
         </div>
