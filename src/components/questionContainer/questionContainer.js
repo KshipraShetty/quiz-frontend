@@ -25,8 +25,6 @@ class QuestionContainer extends Component {
             label="Calculate"
             onCalculateClick={this.props.onCalculateClick}
             disable={this.props.disable}
-            answers={this.props.answers}
-            questions={this.props.questions}
           />
         </div>
       </div>

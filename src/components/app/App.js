@@ -37,14 +37,15 @@ onlogin = () => {
         display: 0,
         errMsg: 'Enter valid username',
       });
-    } else {
-      this.setState({
-        display: 1,
-        questions: onlogin.data.questionStatus,
-        answers: onlogin.data.userAnswers,
-        errMsg: '',
-      });
+      return;
     }
+    this.setState({
+      display: 1,
+      questions: onlogin.data.questionStatus,
+      answers: onlogin.data.userAnswers,
+      errMsg: '',
+    });
+
 
     if (this.state.answers[0].useranswers.length !== this.state.questions.length) {
       this.setState({
@@ -158,7 +159,18 @@ takeUsername = (event) => {
 
 onPlayAgain = () => {
   this.setState({
+
+    disable: false,
     display: 0,
+    username: '',
+    questions: [],
+    answers: [],
+    leaderBoard: [],
+    currentScore: 0,
+    maxScore: 0,
+    errMsg: '',
+    questionOnClick: [],
+
   });
 }
 
