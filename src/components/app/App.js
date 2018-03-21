@@ -57,38 +57,104 @@ onlogin = () => {
 }
 
 onRadioClick=(event, questionId) => {
-  // console.log(questionId);
-  // if (this.state.questionOnClick.length === 0) {
-  //   console.log('hehe');
+  // console.log(this.state.answers);
 
-  //   this.setState({
-  //     questionOnClick: this.state.questionOnClick.push(event.target.name),
-  //   });
-  //   console.log(this.state.questionOnClick);
-  // }
-  // for (let i = 0; i < this.state.questionOnClick.length; i += 1) {
-  //   console.log(this.state.questionOnClick[i]);
+  // const new1 = [];
 
-  //   if (event.target.name !== this.state.questionOnClick[i]) {
-  //     console.log('here');
+  // for (let i = 0; i < this.state.answers[0].useranswers.length; i += 1) {
+  //   // console.log(this.state.answers[0].useranswers[i].questionId);
+  //   // console.log(typeof event.target.name);
 
-  //     this.setState({
-  //       questionOnClick: this.state.questionOnClick.push(event.target.name),
-  //     });
+
+  //   if (this.state.answers[0].useranswers[i].questionId === Number(event.target.name)) {
+  //     // ind = i;
+  //     console.log('one');
+
+  //     const obj = this.state.answers[0];
+  //     // console.log(obj.useranswers[i].answer);
+
+  //     obj.useranswers[i].answer = event.target.value;
+  //     new1.push(obj);
+  //   } else {
+  //     console.log('two');
+
+  //     new1.push(this.state.answers[0]);
   //   }
   // }
-
-  // // this.state.questionOnClick.forEach((each) => {
-  // // console.log('whatever');
-
-
-  // if (this.state.questionOnClick.length === this.state.questions.length) {
-  //   console.log('sgdwjg');
+  // if (this.state.answers[0].useranswers.length !== 0) {
+  //   console.log('three');
 
   //   this.setState({
-  //     disable: false,
+  //     answers: new1,
+  //   });
+  // } else {
+  //   console.log('four');
+
+  //   const obj = this.state.answers[0];
+  //   const userObj = {
+  //     questionId: event.target.name,
+  //     answer: event.target.value,
+  //   };
+  //   obj.useranswers[0] = userObj;
+  //   new1.push(obj);
+  //   this.setState({
+  //     answers: new1,
   //   });
   // }
+
+  // onradioclick the state should be updated
+  // check if the question is already answered
+  // then update the answer
+  // else
+  // create a new answer
+  let obj = {};
+  const obj2 = {};
+  let new1 = [];
+  const new2 = [];
+  // if never answered any questions before
+  if (this.state.answers[0].useranswers.length === 0) {
+    console.log('0');
+
+    obj = this.state.answers[0];
+    obj2.userId = this.state.answers[0].id;
+    obj2.questionId = event.target.name;
+    obj2.answer = event.target.value;
+    new2.push(obj2);
+    obj.useranswers = new2;
+    new1.push(obj);
+    this.setState({
+      answers: new1,
+    });
+  } else {
+    console.log('1');
+    console.log(this.state.answers);
+
+    let flag = false;
+    new1 = this.state.answers;
+    for (let i = 0; i < this.state.answers[0].useranswers.length; i += 1) {
+      // check if answered before
+      if (this.state.answers[0].useranswers[i].questionId === Number(event.target.name)) {
+        console.log('2');
+
+        // update that answer
+        flag = true;
+        new1[0].useranswers[i].answer = event.target.value;
+      }
+    }
+    // obj = this.state.answers[0];
+    if (flag === false) {
+      console.log('3');
+
+      obj2.userId = this.state.answers[0].id;
+      obj2.questionId = event.target.name;
+      obj2.answer = event.target.value;
+      // new2.push(obj2);
+      // obj.useranswers = new2;
+      new1[0].useranswers.push(obj2);
+    }
+  }
+  // console.log(this.state.answers);
+
 
   axios({
     method: 'POST',
@@ -99,19 +165,7 @@ onRadioClick=(event, questionId) => {
       questionId: event.target.name,
     },
   });
-  axios({
-    method: 'POST',
-    url: '/login',
-    data: {
-      username: this.state.username,
-    },
-  }).then((onlogin) => {
-    this.setState({
-      questions: onlogin.data.questionStatus,
-      answers: onlogin.data.userAnswers,
-    });
-  });
-  // console.log(this.state.answers[0].useranswers.length);
+  // console.log(this.state.answers);
 
   if (this.state.answers[0].useranswers.length === this.state.questions.length - 1) {
     this.setState({

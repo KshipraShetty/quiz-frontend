@@ -8,14 +8,14 @@ class AllOptions extends Component {
     // console.log(this.props.eachOption);
 
     for (const eachOpt in this.props.eachOption) {
-      let checked;
+      let checked = null;
 
       // console.log(this.props.answers[0].useranswers);
       this.props.answers[0].useranswers.map((eachAns) => {
         if (eachAns.questionId === this.props.questionId) {
           if (this.props.eachOption[eachOpt] === eachAns.answer) {
             checked = true;
-          } else { checked = false; }
+          } else { checked = null; }
         }
       });
 
